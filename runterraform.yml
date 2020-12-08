@@ -14,19 +14,23 @@
       debug:
         msg: "{{playbook_dir}}"
     
+    - name: Init Terraform
+      shell: |
+        cd {{ playbook_dir }};
+        terraform init
     
-    - name: Execute Terraform Plan
-      terraform:
-        project_path: "{{playbook_dir}}"
-        force_init: yes
-        state: planned
+    #- name: Execute Terraform Plan
+    #  terraform:
+    #    project_path: "{{playbook_dir}}"
+    #    force_init: yes
+    #    state: planned
 
-    - name: Execute Terraform Apply
-      terraform:
-        project_path: "{{playbook_dir}}"
-        state: present
+    #- name: Execute Terraform Apply
+    #  terraform:
+    #    project_path: "{{playbook_dir}}"
+    #    state: present
 
-    - name: Execute Terraform Destroy
-      terraform:
-        project_path: "{{playbook_dir}}"
-        state: absent
+    #- name: Execute Terraform Destroy
+    #  terraform:
+    #    project_path: "{{playbook_dir}}"
+    #    state: absent
