@@ -19,7 +19,12 @@
         cd {{ project_dir }};
         pwd;
         ls -l;
-        {{binary_dir}}/terraform init;
+        {{binary_dir}}/terraform init; 
+      register: t_init
+      
+    - name: "Display output: init resources"
+      debug:
+        msg: "{{ t_init.stdout }}"
         
     
     - name: Plan Terraform
@@ -28,14 +33,26 @@
         pwd;
         ls -l;
         {{binary_dir}}/terraform plan;
+      register: t_plan
+      
+    - name: "Display output: plan resources"
+      debug:
+        msg: "{{ t_plan.stdout }}"
+
         
         
-    - name: Plan Terraform
+    - name: Apply Terraform
       shell: |
         cd {{ project_dir }};
         pwd;
         ls -l;
-        {{binary_dir}}/terraform apply -auto-approve
+        {{binary_dir}}/terraform apply -auto-approve;
+      register: t_apply
+      
+    - name: "Display output: apply resources"
+      debug:
+        msg: "{{ t_apply.stdout }}"        
+        
     #- name: Execute Terraform Plan
     #  terraform:
     #    binary_path: "{{binary_dir}}"
