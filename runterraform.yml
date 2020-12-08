@@ -4,10 +4,14 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
-        
+    - name: Find out playbooks path
+      shell: pwd
+      register: playbook_path_output
+    - debug: var=playbook_path_output.stdout
+    
     - name: Execute Terraform Plan
       terraform:
-        project_path: "{{ project _dir }}"
+        project_path: "{{ project_dir }}"
         state: planned
 
     - name: Execute Terraform Apply
