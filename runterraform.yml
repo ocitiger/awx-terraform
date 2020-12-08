@@ -19,7 +19,7 @@
         cd {{ project_dir }};
         pwd;
         ls -l;
-        terraform init;
+        {{binary_dir}}/terraform init;
         
     
     - name: Plan Terraform
@@ -27,7 +27,7 @@
         cd {{ project_dir }};
         pwd;
         ls -l;
-        terraform plan;
+        {{binary_dir}}/terraform plan;
         
         
     - name: Plan Terraform
@@ -35,7 +35,7 @@
         cd {{ project_dir }};
         pwd;
         ls -l;
-        terraform apply -auto-approve
+        {{binary_dir}}/terraform apply -auto-approve
     #- name: Execute Terraform Plan
     #  terraform:
     #    binary_path: "{{binary_dir}}"
