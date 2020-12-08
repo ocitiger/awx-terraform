@@ -4,3 +4,18 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
+        
+    - name: Execute Terraform Plan
+      terraform:
+        project_path: “{{ project _dir }}”
+        state: planned
+
+    - name: Execute Terraform Apply
+      terraform:
+        project_path: "{{ project_dir }}"
+        state: present
+
+    - name: Execute Terraform Destroy
+      terraform:
+        project_path: "{{ project_dir }}"
+        state: absent
