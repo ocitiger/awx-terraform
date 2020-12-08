@@ -12,27 +12,36 @@
     
     - name: PLAY_DIR
       debug:
-        msg: "{{playbook_dir}}"
+        msg: "{{project_dir}}"
     
-    #- name: Init Terraform
-    #  shell: |
-    #    cd {{ playbook_dir }};
-    #    pwd;
-    #    ls -l;
-    #    terraform init
+    - name: Init Terraform
+      shell: |
+        cd {{ project_dir }};
+        pwd;
+        ls -l;
+        terraform init;
+        
     
-    - name: Execute Terraform Plan
-      terraform:
-        binary_path: "{{binary_dir}}"
-        project_path: "{{project_dir}}"
+    - name: Plan Terraform
+      shell: |
+        cd {{ project_dir }};
+        pwd;
+        ls -l;
+        terraform plan;
+        
+    
+    #- name: Execute Terraform Plan
+    #  terraform:
+    #    binary_path: "{{binary_dir}}"
+    #    project_path: "{{project_dir}}"
     #    force_init: yes
-        state: planned
+    #    state: planned
 
-    - name: Execute Terraform Apply
-      terraform:
-        binary_path: "{{binary_dir}}"
-        project_path: "{{project_dir}}"
-        state: present
+    #- name: Execute Terraform Apply
+    #  terraform:
+    #    binary_path: "{{binary_dir}}"
+    #    project_path: "{{project_dir}}"
+    #    state: present
 
     - name: Execute Terraform Destroy
       terraform:
