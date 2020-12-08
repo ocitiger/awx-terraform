@@ -7,7 +7,7 @@
         
     - name: Execute Terraform Plan
       terraform:
-        project_path: “{{ project _dir }}”
+        project_path: "{{ project _dir }}"
         state: planned
 
     - name: Execute Terraform Apply
