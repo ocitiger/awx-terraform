@@ -11,15 +11,15 @@
     
     - name: Execute Terraform Plan
       terraform:
-        project_path: "{{ project_dir }}"
+        project_path: "{{playbook_dir}}"
         state: planned
 
     - name: Execute Terraform Apply
       terraform:
-        project_path: "{{ project_dir }}"
+        project_path: "{{playbook_dir}}"
         state: present
 
     - name: Execute Terraform Destroy
       terraform:
-        project_path: "{{ project_dir }}"
+        project_path: "{{playbook_dir}}"
         state: absent
