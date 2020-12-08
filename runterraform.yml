@@ -23,16 +23,19 @@
     
     - name: Execute Terraform Plan
       terraform:
-        project_path: "{{playbook_dir}}"
+        binary_path: "{{binary_dir}}"
+        project_path: "{{project_dir}}"
     #    force_init: yes
         state: planned
 
     - name: Execute Terraform Apply
       terraform:
-        project_path: "{{playbook_dir}}"
+        binary_path: "{{binary_dir}}"
+        project_path: "{{project_dir}}"
         state: present
 
     - name: Execute Terraform Destroy
       terraform:
-        project_path: "{{playbook_dir}}"
+        binary_path: "{{binary_dir}}"
+        project_path: "{{project_dir}}"
         state: absent
