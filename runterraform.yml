@@ -17,6 +17,8 @@
     - name: Init Terraform
       shell: |
         cd {{ playbook_dir }};
+        pwd;
+        ls -l;
         terraform init
     
     #- name: Execute Terraform Plan
