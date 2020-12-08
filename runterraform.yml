@@ -12,6 +12,7 @@
     - name: Execute Terraform Plan
       terraform:
         project_path: "{{playbook_dir}}"
+        force_init: yes
         state: planned
 
     - name: Execute Terraform Apply
