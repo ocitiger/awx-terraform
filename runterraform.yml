@@ -29,7 +29,13 @@
         ls -l;
         terraform plan;
         
-    
+        
+    - name: Plan Terraform
+      shell: |
+        cd {{ project_dir }};
+        pwd;
+        ls -l;
+        terraform apply -auto-approve
     #- name: Execute Terraform Plan
     #  terraform:
     #    binary_path: "{{binary_dir}}"
@@ -43,8 +49,8 @@
     #    project_path: "{{project_dir}}"
     #    state: present
 
-    - name: Execute Terraform Destroy
-      terraform:
-        binary_path: "{{binary_dir}}"
-        project_path: "{{project_dir}}"
-        state: absent
+    #- name: Execute Terraform Destroy
+    #  terraform:
+    #    binary_path: "{{binary_dir}}"
+    #    project_path: "{{project_dir}}"
+    #    state: absent
